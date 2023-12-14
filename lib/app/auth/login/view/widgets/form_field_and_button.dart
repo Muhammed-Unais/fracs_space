@@ -3,6 +3,7 @@ import 'package:fracs_space/app/auth/view_model/auth_view_model.dart';
 import 'package:fracs_space/common/res/styles/app_colors.dart';
 import 'package:fracs_space/common/res/styles/mobile_typography.dart';
 import 'package:fracs_space/common/res/widgets/cusotm_text_field.dart';
+import 'package:fracs_space/common/res/widgets/loadin_screen.dart';
 import 'package:provider/provider.dart';
 
 GlobalKey<FormState> loginformKey = GlobalKey<FormState>();
@@ -39,11 +40,13 @@ class _FormFieldAndButtonState extends State<FormFieldAndButton> {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return "Please enter a phone number";
+              } else if (value.length != 10) {
+                return "Please enter valid phone number";
               }
               return null;
             },
             onChanged: (value) {
-              if (value.isNotEmpty) {
+              if (value.length == 10) {
                 loginformKey.currentState!.validate();
               }
             },
@@ -73,6 +76,7 @@ class _FormFieldAndButtonState extends State<FormFieldAndButton> {
                 if (loginformKey.currentState!.validate()) {
                   final authProvider = context.read<AuthViewModel>();
                   authProvider.signinWithPhone(context, "+91$phoneNumber");
+                  LoadingBar.popUpLoadingBar(context);
                 }
               },
               child: Text(

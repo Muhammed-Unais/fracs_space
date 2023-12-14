@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fracs_space/app/auth/login/view/login_screen.dart';
-import 'package:fracs_space/app/auth/otp_verfication/view/otp_screen.dart';
 import 'package:fracs_space/app/auth/view_model/auth_view_model.dart';
 import 'package:fracs_space/common/res/styles/app_theme.dart';
 import 'package:fracs_space/firebase_options.dart';
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
-      home: const OtpVerificationScreen(),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

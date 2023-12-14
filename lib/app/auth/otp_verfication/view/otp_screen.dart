@@ -36,7 +36,7 @@ class OtpVerificationScreen extends StatelessWidget {
                 width: size.width,
                 child: ElevatedButton(
                   onPressed: () {
-
+      
                   },
                   child: Text(
                     "Verify OTP",

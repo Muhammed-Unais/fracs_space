@@ -1,7 +1,9 @@
-import 'dart:developer';
+// ignore_for_file: use_build_context_synchronously
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fracs_space/app/auth/otp_verfication/view/otp_screen.dart';
+import 'package:fracs_space/common/res/widgets/loadin_screen.dart';
+import 'package:fracs_space/common/utils/utils.dart';
 
 class FirebaseAuthRepo {
   final FirebaseAuth auth;
@@ -10,16 +12,17 @@ class FirebaseAuthRepo {
 
   Future<void> signinWithPhone(BuildContext context, String phoneNumber) async {
     try {
-      auth.verifyPhoneNumber(
+      await auth.verifyPhoneNumber(
         phoneNumber: phoneNumber,
         verificationCompleted: (PhoneAuthCredential phoneAuthCredential) async {
           await auth.signInWithCredential(phoneAuthCredential);
         },
         verificationFailed: (FirebaseAuthException error) {
-          log(error.message!);
           throw Exception(error.message);
         },
         codeSent: (String verificationId, int? forceResendingToken) {
+          LoadingBar.offPopLoadingBar(context);
+
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -32,30 +35,30 @@ class FirebaseAuthRepo {
         codeAutoRetrievalTimeout: (verificationId) {},
       );
     } on FirebaseAuthException catch (e) {
-      log(e.toString());
-      // Utils.showSnackBar(
-      //   context: context,
-      //   content: e.message ?? "Unknown Error",
-      // );
+      Utils.showSnackBar(
+        context: context,
+        content: e.message ?? "Unknown Error",
+      );
     }
   }
 
-  void verfiyOTP(
+  Future<void> verfiyOTP(
       BuildContext context, String userOtp, String verficationId) async {
-    // bool isValidate = false;
     try {
       PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(
           verificationId: verficationId, smsCode: userOtp);
-      await auth.signInWithCredential(phoneAuthCredential).then((value) {});
-      // ignore: use_build_context_synchronously
-      // Navigator.pushNamedAndRemoveUntil(
-      //     context, RoutesName.userInformationScreen, (route) => false);
+      await auth.signInWithCredential(phoneAuthCredential).then((value) {
+        Utils.showSnackBar(
+        context: context,
+        content:"Login Successful!",
+        
+      );
+      });
     } on FirebaseAuthException catch (e) {
-      log(e.toString());
-      // Utils.showSnackBar(
-      //   context: context,
-      //   content: e.message ?? "Unknown Error",
-      // );
+      Utils.showSnackBar(
+        context: context,
+        content: e.message ?? "Unknown Error",
+      );
     }
   }
 }
