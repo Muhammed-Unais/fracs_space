@@ -1,9 +1,24 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fracs_space/app/auth/login/view/login_screen.dart';
+import 'package:fracs_space/app/auth/otp_verfication/view/otp_screen.dart';
+import 'package:fracs_space/app/auth/view_model/auth_view_model.dart';
 import 'package:fracs_space/common/res/styles/app_theme.dart';
+import 'package:fracs_space/firebase_options.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => AuthViewModel(),
+      )
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
-      home: const LoginScreen(),
+      home: const OtpVerificationScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

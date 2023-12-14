@@ -29,7 +29,7 @@ ThemeData themeData = ThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       elevation: 10,
       foregroundColor: AppLightColors.lightBackground,
-      backgroundColor: AppLightColors.lightOnBackground,
+      backgroundColor: AppLightColors.lightPrimaryColor,
       textStyle: MobileTypography.elevatedButtonTextStyle.copyWith(
         fontWeight: FontWeight.w500,
         fontSize: 20,
