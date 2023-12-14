@@ -2,7 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fracs_space/app/auth/otp_verfication/view/otp_screen.dart';
-import 'package:fracs_space/app/home/view/home_screen.dart';
+import 'package:fracs_space/app/bottom_nav_bar/view/bottom_nav_bar_screen.dart';
 import 'package:fracs_space/common/res/widgets/loadin_screen.dart';
 import 'package:fracs_space/common/utils/user_token.dart';
 import 'package:fracs_space/common/utils/utils.dart';
@@ -61,7 +61,7 @@ class FirebaseAuthRepo {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const HomeScreen();
+              return const BottomBarView();
             },
           ),
           (route) => false,
