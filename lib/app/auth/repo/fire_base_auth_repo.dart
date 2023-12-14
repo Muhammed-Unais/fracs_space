@@ -2,7 +2,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fracs_space/app/auth/otp_verfication/view/otp_screen.dart';
+import 'package:fracs_space/app/home/view/home_screen.dart';
 import 'package:fracs_space/common/res/widgets/loadin_screen.dart';
+import 'package:fracs_space/common/utils/user_token.dart';
 import 'package:fracs_space/common/utils/utils.dart';
 
 class FirebaseAuthRepo {
@@ -48,11 +50,22 @@ class FirebaseAuthRepo {
       PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(
           verificationId: verficationId, smsCode: userOtp);
       await auth.signInWithCredential(phoneAuthCredential).then((value) {
+        LoggedInUser.profile(value.user?.phoneNumber, value.user?.uid);
+
         Utils.showSnackBar(
-        context: context,
-        content:"Login Successful!",
-        
-      );
+          context: context,
+          content: "Login Successful!",
+        );
+
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return const HomeScreen();
+            },
+          ),
+          (route) => false,
+        );
       });
     } on FirebaseAuthException catch (e) {
       Utils.showSnackBar(
