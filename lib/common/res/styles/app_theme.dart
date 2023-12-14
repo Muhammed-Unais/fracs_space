@@ -27,8 +27,9 @@ ThemeData themeData = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      elevation: 0,
+      elevation: 10,
       foregroundColor: AppLightColors.lightBackground,
+      backgroundColor: AppLightColors.lightOnBackground,
       textStyle: MobileTypography.elevatedButtonTextStyle.copyWith(
         fontWeight: FontWeight.w500,
         fontSize: 20,

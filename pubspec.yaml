@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  country_picker: ^2.0.20
 
 dev_dependencies:
   flutter_test:
@@ -77,14 +78,16 @@ flutter:
   fonts:
     - family: POPPINS
       fonts:
-        - asset: assets/Fonts/POPPINS/POPPINS-Regular.ttf
+        - asset: assets/fonts/poppins/POPPINS-Regular.ttf
     - family: Pangram
       fonts:
-        - asset: assets/Fonts/Pangram/Pangram-Regular.otf
-        - asset: assets/Fonts/Pangram/Pangram-Medium.otf
+        - asset: assets/fonts/pangram/Pangram-Regular.otf
+        - asset: assets/fonts/pangram/Pangram-Medium.otf
           weight: 500
-        - asset: assets/Fonts/Pangram/Pangram-Bold.otf
+        - asset: assets/fonts/pangram/Pangram-Bold.otf
           weight: 600
+        - asset: assets/fonts/pangram/Pangram-ExtraBold.otf
+          weight: 900
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
