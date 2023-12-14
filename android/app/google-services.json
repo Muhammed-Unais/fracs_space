@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "593747566344",
+    "project_id": "fracs-space",
+    "storage_bucket": "fracs-space.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593747566344:android:590c7ed1ea43fdff0d16bd",
+        "android_client_info": {
+          "package_name": "com.example.fracs_space"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJVAgotQ3stqgJHCFHxv-HMS5Sy7KgU5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
