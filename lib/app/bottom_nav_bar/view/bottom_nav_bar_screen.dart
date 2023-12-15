@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fracs_space/app/bottom_nav_bar/view_model/bottom_bar_view_model.dart';
+import 'package:fracs_space/app/favorites/view/favorites_screen.dart';
 import 'package:fracs_space/app/home/view/home_screen.dart';
 import 'package:fracs_space/app/search/view/search_view.dart';
 import 'package:fracs_space/common/res/styles/app_colors.dart';
@@ -17,7 +18,7 @@ class _BottomBarViewState extends State<BottomBarView> {
   List<Widget> screens = [
     const HomeScreen(),
     const SearchScreen(),
-    const Text("Hom2"),
+    const FavoriteScreen(),
     const Text("Home3"),
   ];
 
@@ -71,16 +72,16 @@ class _BottomBarViewState extends State<BottomBarView> {
               ),
             ),
             BottomNavigationBarItem(
-              label: "BookMark",
+              label: "Favorites",
               icon: Icon(
                 color: bottombarProvider.currentIndex == 2
                     ? AppLightColors.lightPrimaryColor
                     : Colors.grey,
-                Icons.bookmark,
+                Icons.favorite,
               ),
             ),
             BottomNavigationBarItem(
-              label: "Profilez",
+              label: "Profile",
               icon: Icon(
                 color: bottombarProvider.currentIndex == 3
                     ? AppLightColors.lightPrimaryColor

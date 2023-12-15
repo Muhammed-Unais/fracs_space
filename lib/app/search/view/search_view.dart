@@ -115,7 +115,7 @@ class SearchScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: popularCities?.length,
                 itemBuilder: (context, index) {
                   final cityName = popularCities?[index]["name"];
 

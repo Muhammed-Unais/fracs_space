@@ -25,7 +25,8 @@ class HomeHotProp extends StatelessWidget {
           final sqft = hotProp?[index]["sqft"];
           final availabefrac = hotProp?[index]["availabe_frac"];
           final fracprice = hotProp?[index]["frac_price"];
-          return SizedBox(
+          return Container(
+            margin: const EdgeInsets.only(right: 5),
             width: size.width * 0.7,
             child: Card(
               elevation: 4,
@@ -48,37 +49,30 @@ class HomeHotProp extends StatelessWidget {
                     const SizedBox(width: 10),
                     Expanded(
                       child: Column(
-                        mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             name!,
-                            style: MobileTypography.titleLarge
-                                .copyWith(),
+                            style: MobileTypography.titleLarge.copyWith(),
                             overflow: TextOverflow.clip,
                             maxLines: 2,
                           ),
                           Text(
                             sqft!,
-                            style: MobileTypography.titleSmall
-                                .copyWith(
+                            style: MobileTypography.titleSmall.copyWith(
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           Text(
                             "Avialable Frac $availabefrac",
-                            style: MobileTypography.titleSmall
-                                .copyWith(
+                            style: MobileTypography.titleSmall.copyWith(
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           Text(
                             "\$$fracprice",
-                            style: MobileTypography
-                                .headlineLarge
-                                .copyWith(
+                            style: MobileTypography.headlineLarge.copyWith(
                               fontSize: 20,
                               fontWeight: FontWeight.w900,
                             ),
