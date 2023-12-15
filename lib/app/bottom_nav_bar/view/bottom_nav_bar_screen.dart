@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fracs_space/app/bottom_nav_bar/view_model/bottom_bar_view_model.dart';
 import 'package:fracs_space/app/favorites/view/favorites_screen.dart';
 import 'package:fracs_space/app/home/view/home_screen.dart';
+import 'package:fracs_space/app/profile/view/profile_view.dart';
 import 'package:fracs_space/app/search/view/search_view.dart';
 import 'package:fracs_space/common/res/styles/app_colors.dart';
 import 'package:fracs_space/common/res/styles/mobile_typography.dart';
@@ -19,7 +20,7 @@ class _BottomBarViewState extends State<BottomBarView> {
     const HomeScreen(),
     const SearchScreen(),
     const FavoriteScreen(),
-    const Text("Home3"),
+    const ProfileScreen()
   ];
 
   @override

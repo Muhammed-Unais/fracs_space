@@ -1,3 +1,4 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fracs_space/common/res/styles/mobile_typography.dart';
 
@@ -39,6 +40,17 @@ class HomeFeaturedCities extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                 ),
+                // ClipOval(
+                //   child: FancyShimmerImage(
+                //     imageUrl: image!,
+                //     height: size.height * 0.075,
+                //     width: size.height * 0.075,
+                //     boxFit: BoxFit.cover,
+                //     errorWidget: Image.asset(
+                //       "assets/images/no_image.jpg",
+                //     ),
+                //   ),
+                // ),
                 const SizedBox(height: 10),
                 Text(
                   cityName!,
