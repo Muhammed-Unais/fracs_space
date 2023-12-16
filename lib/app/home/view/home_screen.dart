@@ -27,6 +27,10 @@ class HomeScreen extends StatelessWidget {
                   featuredCities: featuredCities,
                   hotProp: hotProp,
                 ),
+                Container(
+                  height: size.height * 0.1,
+                  color: AppLightColors.lightBackground,
+                )
               ],
             ),
           )
