@@ -24,7 +24,27 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: size.height * 0.04),
                 const QuickLoginOptionWidget(),
                 SizedBox(height: size.height * 0.04),
-                SocialMediaLoginButton(size: size)
+                SocialMediaLoginButton(
+                  size: size,
+                  media: "Apple",
+                  icon: "assets/images/apple_2.webp",
+                  iconsize: 42,
+                ),
+                SizedBox(height: size.height * 0.02),
+                SocialMediaLoginButton(
+                  size: size,
+                  media: "Google",
+                  icon: "assets/images/google_1.webp",
+                  iconsize: 28,
+                ),
+                SizedBox(height: size.height * 0.02),
+                SocialMediaLoginButton(
+                  size: size,
+                  media: "Facebook",
+                  icon: "assets/images/fb.png",
+                  iconsize: 32,
+                ),
+                SizedBox(height: size.height * 0.02),
               ],
             ),
           ),

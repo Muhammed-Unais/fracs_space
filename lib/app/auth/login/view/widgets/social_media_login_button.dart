@@ -6,9 +6,15 @@ class SocialMediaLoginButton extends StatelessWidget {
   const SocialMediaLoginButton({
     super.key,
     required this.size,
+    required this.media,
+    required this.icon,
+    required this.iconsize,
   });
 
   final Size size;
+  final String media;
+  final String icon;
+  final double iconsize;
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +22,22 @@ class SocialMediaLoginButton extends StatelessWidget {
       alignment: Alignment.center,
       height: size.height * 0.06,
       decoration: BoxDecoration(
-        color: Colors.black26,
+        color: Colors.black12,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Image.asset(
+            icon,
+            height: iconsize,
+            width: iconsize,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
           Text(
-            "Sign in with Google",
+            "Sign in with $media",
             style: MobileTypography.titleMedium.copyWith(
               fontWeight: FontWeight.w500,
               color: AppLightColors.lightOnBackground,

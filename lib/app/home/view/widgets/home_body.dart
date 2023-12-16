@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fracs_space/app/home/view/widgets/home_featured_cites.dart';
 import 'package:fracs_space/app/home/view/widgets/home_hot_prop.dart';
 import 'package:fracs_space/app/home/view/widgets/home_popular_prop.dart';
+import 'package:fracs_space/app/properties_details/view/properties_screen.dart';
 import 'package:fracs_space/common/res/styles/app_colors.dart';
 import 'package:fracs_space/common/res/styles/mobile_typography.dart';
 
@@ -74,7 +75,19 @@ class HomeBody extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            HomeHotProp(size: size, hotProp: hotProp),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const PropertiesScreen();
+                    },
+                  ),
+                );
+              },
+              child: HomeHotProp(size: size, hotProp: hotProp),
+            ),
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

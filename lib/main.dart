@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:fracs_space/app/auth/login/view/login_screen.dart';
 import 'package:fracs_space/app/auth/view_model/auth_view_model.dart';
 import 'package:fracs_space/app/bottom_nav_bar/view_model/bottom_bar_view_model.dart';
 import 'package:fracs_space/app/splash_screen/view/splash_screen.dart';

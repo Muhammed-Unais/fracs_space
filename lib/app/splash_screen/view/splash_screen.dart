@@ -55,7 +55,7 @@ class _SplashUiState extends State<SplashUi> {
           style: MobileTypography.headlineLarge.copyWith(
             fontWeight: FontWeight.w900,
             fontSize: 32,
-            color: AppLightColors.lightBackground,
+            color: AppLightColors.lightSeedColor,
           ),
         ),
       ),
