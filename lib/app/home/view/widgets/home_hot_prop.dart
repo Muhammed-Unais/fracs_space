@@ -54,7 +54,11 @@ class HomeHotProp extends StatelessWidget {
                         children: [
                           Text(
                             name!,
-                            style: MobileTypography.titleLarge.copyWith(),
+                            style: MobileTypography.titleMedium.copyWith(
+                              color: AppLightColors.lightPrimaryColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
                             overflow: TextOverflow.clip,
                             maxLines: 2,
                           ),

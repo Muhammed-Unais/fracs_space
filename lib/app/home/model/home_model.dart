@@ -2,18 +2,18 @@ class HomeModel {
   static const popularProp = {
     "data": [
       {
-        "name": "FARMA FRACSPACE",
+        "name": "Farma fracspace",
         "place": "Hyderabad",
         "image": "https://www.fracspace.com/portfolio/hyderabad/1.jpg",
       },
       {
-        "name": "FRACSPACE AEV",
+        "name": "Fracspace aev",
         "place": "Goa",
         "image": "https://www.fracspace.com/portfolio/acron/03.jpg",
       },
       {
-        "name": "FRACSPACE ROOMS",
-        "place": "VARKALA",
+        "name": "Fracspace rooms",
+        "place": "Varkala",
         "image": "https://www.fracspace.com/portfolio/varkala/slider/1.PNG",
       }
     ]

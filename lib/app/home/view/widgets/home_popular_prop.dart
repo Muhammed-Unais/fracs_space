@@ -52,16 +52,18 @@ class HomePopularProp extends StatelessWidget {
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                         name!,
-                        style: MobileTypography.titleLarge.copyWith(
+                        style: MobileTypography.titleMedium.copyWith(
                           color: AppLightColors.lightBackground,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       Text(
                         place!,
-                        style: MobileTypography.titleLarge.copyWith(
+                        style: MobileTypography.titleMedium.copyWith(
                           color: AppLightColors.lightBackground,
                         ),
                       ),

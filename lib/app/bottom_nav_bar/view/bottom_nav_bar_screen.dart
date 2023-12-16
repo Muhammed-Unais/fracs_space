@@ -25,72 +25,88 @@ class _BottomBarViewState extends State<BottomBarView> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Consumer<BottomBarViewModel>(
         builder: (context, bottombarProvider, _) {
       return Scaffold(
         body: screens[bottombarProvider.currentIndex],
         backgroundColor: AppLightColors.lightBackground,
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: (value) {
-            bottombarProvider.setBottomBarCurrentScreen(value);
-          },
-          currentIndex: 0,
-          iconSize: 24,
-          showSelectedLabels: true,
-          selectedLabelStyle: MobileTypography.titleSmall.copyWith(
-            color: AppLightColors.lightPrimaryColor,
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
+        bottomNavigationBar: Container(
+          margin: EdgeInsets.all(size.width * 0.05),
+          height: size.width * 0.155,
+          decoration: BoxDecoration(
+            color: AppLightColors.lightSeedColor,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 30,
+                offset: const Offset(0, 10),
+              ),
+            ],
+            borderRadius: BorderRadius.circular(50),
           ),
-          unselectedLabelStyle: MobileTypography.titleSmall.copyWith(
-            color: AppLightColors.lightSecondaryColor,
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
+          child: BottomNavigationBar(
+            onTap: (value) {
+              bottombarProvider.setBottomBarCurrentScreen(value);
+            },
+            currentIndex: 0,
+            iconSize: 24,
+            showSelectedLabels: true,
+            selectedLabelStyle: MobileTypography.titleSmall.copyWith(
+              color: AppLightColors.lightPrimaryColor,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+            unselectedLabelStyle: MobileTypography.titleSmall.copyWith(
+              color: AppLightColors.lightSecondaryColor,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+            type: BottomNavigationBarType.fixed,
+            showUnselectedLabels: true,
+            backgroundColor: AppLightColors.lightSeedColor,
+            elevation: 10,
+            selectedItemColor: AppLightColors.lightPrimaryColor,
+            unselectedItemColor: Colors.grey,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                label: "Home",
+                icon: Icon(
+                  color: bottombarProvider.currentIndex == 0
+                      ? AppLightColors.lightPrimaryColor
+                      : Colors.grey,
+                  Icons.home,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: "Search",
+                icon: Icon(
+                  color: bottombarProvider.currentIndex == 1
+                      ? AppLightColors.lightPrimaryColor
+                      : Colors.grey,
+                  Icons.search,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: "Favorites",
+                icon: Icon(
+                  color: bottombarProvider.currentIndex == 2
+                      ? AppLightColors.lightPrimaryColor
+                      : Colors.grey,
+                  Icons.favorite,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: "Profile",
+                icon: Icon(
+                  color: bottombarProvider.currentIndex == 3
+                      ? AppLightColors.lightPrimaryColor
+                      : Colors.grey,
+                  Icons.person_2_outlined,
+                ),
+              ),
+            ],
           ),
-          type: BottomNavigationBarType.fixed,
-          showUnselectedLabels: true,
-          backgroundColor: AppLightColors.lightBackground,
-          elevation: 10,
-          selectedItemColor: AppLightColors.lightPrimaryColor,
-          unselectedItemColor: Colors.grey,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              label: "Home",
-              icon: Icon(
-                color: bottombarProvider.currentIndex == 0
-                    ? AppLightColors.lightPrimaryColor
-                    : Colors.grey,
-                Icons.home,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "Search",
-              icon: Icon(
-                color: bottombarProvider.currentIndex == 1
-                    ? AppLightColors.lightPrimaryColor
-                    : Colors.grey,
-                Icons.search,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "Favorites",
-              icon: Icon(
-                color: bottombarProvider.currentIndex == 2
-                    ? AppLightColors.lightPrimaryColor
-                    : Colors.grey,
-                Icons.favorite,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "Profile",
-              icon: Icon(
-                color: bottombarProvider.currentIndex == 3
-                    ? AppLightColors.lightPrimaryColor
-                    : Colors.grey,
-                Icons.person_2_outlined,
-              ),
-            ),
-          ],
         ),
       );
     });
