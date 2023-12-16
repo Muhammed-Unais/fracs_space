@@ -1,3 +1,4 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fracs_space/common/res/styles/app_colors.dart';
 import 'package:fracs_space/common/res/styles/mobile_typography.dart';
@@ -32,17 +33,33 @@ class HomeHotProp extends StatelessWidget {
               elevation: 4,
               surfaceTintColor: AppLightColors.lightBackground,
               color: AppLightColors.lightBackground,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  16,
+                ),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
-                    Container(
-                      width: size.width * 0.32,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          image: NetworkImage(image!),
-                          fit: BoxFit.cover,
+                    // Container(
+                    //   width: size.width * 0.32,
+                    //   decoration: BoxDecoration(
+                    //     borderRadius: BorderRadius.circular(10),
+                    //     image: DecorationImage(
+                    //       image: NetworkImage(image!),
+                    //       fit: BoxFit.cover,
+                    //     ),
+                    //   ),
+                    // ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: FancyShimmerImage(
+                        imageUrl: image!,
+                        width: size.width * 0.32,
+                        boxFit: BoxFit.cover,
+                        errorWidget: Image.asset(
+                          "assets/images/no_image.jpg",
                         ),
                       ),
                     ),
@@ -73,12 +90,15 @@ class HomeHotProp extends StatelessWidget {
                             style: MobileTypography.titleSmall.copyWith(
                               fontWeight: FontWeight.w400,
                             ),
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          Text(
-                            "\$$fracprice",
-                            style: MobileTypography.headlineLarge.copyWith(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900,
+                          Flexible(
+                            child: Text(
+                              "\$$fracprice",
+                              style: MobileTypography.headlineLarge.copyWith(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w900,
+                              ),
                             ),
                           ),
                         ],

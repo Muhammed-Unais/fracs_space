@@ -1,3 +1,4 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fracs_space/app/home/model/home_model.dart';
 import 'package:fracs_space/common/res/styles/app_colors.dart';
@@ -153,56 +154,66 @@ class ProfileScreen extends StatelessWidget {
                 final name = popularProp![index]["name"];
                 final image = popularProp[index]["image"];
                 final place = popularProp[index]["place"];
-                return Container(
-                  margin:
+                return Padding(
+                  padding:
                       const EdgeInsets.only(right: 10, left: 10, bottom: 16),
-                  width: size.width,
-                  height: size.height * 0.2,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        image!,
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: SizedBox(
-                      height: 60,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 12,
-                              bottom: 12,
-                            ),
-                            child: VerticalDivider(
-                              thickness: 3,
-                              color: Colors.blue.shade300,
-                            ),
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: FancyShimmerImage(
+                          imageUrl: image!,
+                          width: size.width,
+                          height: size.height * 0.2,
+                          boxFit: BoxFit.cover,
+                          errorWidget: Image.asset(
+                            "assets/images/no_image.jpg",
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                name!,
-                                style: MobileTypography.titleLarge.copyWith(
-                                  color: AppLightColors.lightBackground,
-                                ),
-                              ),
-                              Text(
-                                place!,
-                                style: MobileTypography.titleLarge.copyWith(
-                                  color: AppLightColors.lightBackground,
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
+                        ),
                       ),
-                    ),
+                      Positioned(
+                        left: 0,
+                        bottom: 0,
+                        child: SizedBox(
+                          height: 60,
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 12,
+                                  bottom: 12,
+                                ),
+                                child: VerticalDivider(
+                                  thickness: 3,
+                                  color: Colors.blue.shade300,
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    name!,
+                                    style:
+                                        MobileTypography.titleMedium.copyWith(
+                                      color: AppLightColors.lightBackground,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                  ),
+                                  Text(
+                                    place!,
+                                    style:
+                                        MobileTypography.titleMedium.copyWith(
+                                      color: AppLightColors.lightBackground,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 );
               },

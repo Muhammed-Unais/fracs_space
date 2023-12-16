@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fracs_space/app/auth/login/view/login_screen.dart';
 import 'package:fracs_space/app/auth/view_model/auth_view_model.dart';
 import 'package:fracs_space/app/bottom_nav_bar/view_model/bottom_bar_view_model.dart';
+import 'package:fracs_space/app/splash_screen/view/splash_screen.dart';
 import 'package:fracs_space/common/res/styles/app_theme.dart';
 import 'package:fracs_space/firebase_options.dart';
 import 'package:provider/provider.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
-      home: const LoginScreen(),
+      home: const SplashUi(),
       debugShowCheckedModeBanner: false,
     );
   }

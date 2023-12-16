@@ -29,33 +29,34 @@ class HomeFeaturedCities extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  height: size.height * 0.075,
-                  width: size.height * 0.075,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(image!),
-                      fit: BoxFit.cover,
-                    ),
-                    shape: BoxShape.circle,
-                  ),
-                ),
-                // ClipOval(
-                //   child: FancyShimmerImage(
-                //     imageUrl: image!,
-                //     height: size.height * 0.075,
-                //     width: size.height * 0.075,
-                //     boxFit: BoxFit.cover,
-                //     errorWidget: Image.asset(
-                //       "assets/images/no_image.jpg",
+                // Container(
+                //   height: size.height * 0.075,
+                //   width: size.height * 0.075,
+                //   decoration: BoxDecoration(
+                //     image: DecorationImage(
+                //       image: NetworkImage(image!),
+                //       fit: BoxFit.cover,
                 //     ),
+                //     shape: BoxShape.circle,
                 //   ),
                 // ),
+                ClipOval(
+                  child: FancyShimmerImage(
+                    imageUrl: image!,
+                    height: size.height * 0.075,
+                    width: size.height * 0.075,
+                    boxFit: BoxFit.cover,
+                    errorWidget: Image.asset(
+                      "assets/images/no_image.jpg",
+                    ),
+                  ),
+                ),
                 const SizedBox(height: 10),
                 Text(
                   cityName!,
                   textAlign: TextAlign.center,
                   style: MobileTypography.bodyMedium,
+                  overflow: TextOverflow.ellipsis,
                 )
               ],
             ),

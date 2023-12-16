@@ -1,3 +1,4 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fracs_space/common/res/styles/app_colors.dart';
 import 'package:fracs_space/common/res/styles/mobile_typography.dart';
@@ -35,13 +36,24 @@ class FavoriteTab1 extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Row(
                 children: [
-                  Container(
-                    width: size.width * 0.4,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: NetworkImage(image!),
-                        fit: BoxFit.cover,
+                  // Container(
+
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(10),
+                  //     image: DecorationImage(
+                  //       image: NetworkImage(image!),
+                  //       fit: BoxFit.cover,
+                  //     ),
+                  //   ),
+                  // ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: FancyShimmerImage(
+                      imageUrl: image!,
+                      width: size.width * 0.4,
+                      boxFit: BoxFit.cover,
+                      errorWidget: Image.asset(
+                        "assets/images/no_image.jpg",
                       ),
                     ),
                   ),
@@ -53,9 +65,14 @@ class FavoriteTab1 extends StatelessWidget {
                       children: [
                         Text(
                           name!,
-                          style: MobileTypography.titleLarge.copyWith(),
-                          overflow: TextOverflow.clip,
-                          maxLines: 2,
+                          style: MobileTypography.titleMedium.copyWith(
+                            color: AppLightColors.lightPrimaryColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
                         Text(
                           sqft!,
@@ -68,12 +85,15 @@ class FavoriteTab1 extends StatelessWidget {
                           style: MobileTypography.titleSmall.copyWith(
                             fontWeight: FontWeight.w400,
                           ),
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        Text(
-                          "\$$fracprice",
-                          style: MobileTypography.headlineLarge.copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w900,
+                        Flexible(
+                          child: Text(
+                            "\$$fracprice",
+                            style: MobileTypography.headlineLarge.copyWith(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w900,
+                            ),
                           ),
                         ),
                       ],

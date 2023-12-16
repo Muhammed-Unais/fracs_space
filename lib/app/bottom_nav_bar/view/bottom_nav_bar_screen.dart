@@ -24,7 +24,7 @@ class _BottomBarViewState extends State<BottomBarView> {
     const FavoriteScreen(),
     const ProfileScreen()
   ];
-  List<String> screens = ["Home", "Search", "Favorites", "Profile  "];
+  List<String> screens = ["Home", "Search", "Favorite", "Profile"];
   List<IconData> icons = [
     Icons.home_outlined,
     Icons.search_outlined,
@@ -93,7 +93,7 @@ class _BottomBarViewState extends State<BottomBarView> {
                     duration: const Duration(seconds: 1),
                     curve: Curves.fastLinearToSlowEaseIn,
                     width: index == currentIndex
-                        ? size.width * .31
+                        ? size.width * .32
                         : size.width * .18,
                     alignment: Alignment.center,
                     child: Stack(
@@ -116,6 +116,7 @@ class _BottomBarViewState extends State<BottomBarView> {
                                   fontWeight: FontWeight.w600,
                                   fontSize: 15,
                                 ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             )
                           ],
